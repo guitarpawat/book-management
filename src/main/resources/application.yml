@@ -4,6 +4,11 @@ spring:
     url: jdbc:mysql://localhost:3306/book_management
     username: root
     password: password
+  flyway:
+    driver-class-name: ${spring.datasource.driver-class-name}
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
   jpa:
     hibernate:
       ddl-auto: validate

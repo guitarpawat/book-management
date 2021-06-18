@@ -4,14 +4,17 @@ import com.example.bookmanagement.config.CommonConstants.MSG_SUCCESS
 import com.example.bookmanagement.model.Response
 import com.example.bookmanagement.model.request.PostBookRequest
 import com.example.bookmanagement.model.response.GetByIdResponse
+import com.example.bookmanagement.model.response.PostBookResponse
 import com.example.bookmanagement.service.BookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 import javax.validation.constraints.Min
 
 @RestController
+@Validated
 class BooksController(
     @Autowired private val bookService: BookService,
 ) {
@@ -24,10 +27,10 @@ class BooksController(
     }
 
     @PostMapping("/v1/books")
-    fun postBook(@RequestBody @Valid request: PostBookRequest): ResponseEntity<Response<Nothing>> {
-        bookService.saveBook(request)
+    fun postBook(@RequestBody @Valid request: PostBookRequest): ResponseEntity<Response<PostBookResponse>> {
+        val response = bookService.saveBook(request)
         return ResponseEntity.ok()
-            .body(Response(MSG_SUCCESS, null))
+            .body(Response(MSG_SUCCESS, response))
     }
 
 }

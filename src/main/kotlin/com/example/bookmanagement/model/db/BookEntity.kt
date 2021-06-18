@@ -1,6 +1,7 @@
 package com.example.bookmanagement.model.db
 
-import java.sql.Timestamp
+import org.hibernate.annotations.CreationTimestamp
+import java.time.ZonedDateTime
 import javax.persistence.*
 
 @Entity
@@ -14,6 +15,6 @@ data class BookEntity(
     var edition: Int?,
     var status: String,
     var isFavourite: Boolean,
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    var createdDatetime: Timestamp?,
+    @CreationTimestamp
+    var createdDatetime: ZonedDateTime?,
 )

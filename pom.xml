@@ -63,11 +63,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.4.2.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.30</version>
@@ -91,6 +86,12 @@
 			<groupId>io.mockk</groupId>
 			<artifactId>mockk</artifactId>
 			<version>1.11.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.ninja-squad</groupId>
+			<artifactId>springmockk</artifactId>
+			<version>3.0.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -138,14 +139,6 @@
 				<configuration>
 					<source>1.11</source> <!-- depending on your project -->
 					<target>1.11</target> <!-- depending on your project -->
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>1.4.2.Final</version>
-						</path>
-						<!-- other annotation processors -->
-					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>

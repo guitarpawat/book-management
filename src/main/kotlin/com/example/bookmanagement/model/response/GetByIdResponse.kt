@@ -1,6 +1,5 @@
 package com.example.bookmanagement.model.response
 
-import com.example.bookmanagement.model.emuns.BookStatus
 import java.time.ZonedDateTime
 
 data class GetByIdResponse(
@@ -8,7 +7,7 @@ data class GetByIdResponse(
     val name: String,
     val author: String,
     val edition: Int?,
-    val status: BookStatus = BookStatus.WISH_LIST,
+    val status: String,
     val isFavourite: Boolean = false,
     val createdDatetime: ZonedDateTime,
 )
