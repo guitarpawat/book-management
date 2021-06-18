@@ -33,7 +33,7 @@ internal class BookRepositoryTest(
     }
 
     @Test
-    fun `isFavourite should be updated`() {
+    fun `updateFavourite should update favourite`() {
         val newEntity = BookEntity(
             null,
             "mock name",
