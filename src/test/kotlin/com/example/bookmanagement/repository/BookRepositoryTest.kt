@@ -33,6 +33,23 @@ internal class BookRepositoryTest(
     }
 
     @Test
+    fun `findByFavouriteAndStatusNativeQuery should find inserted entity`() {
+        val newEntity = BookEntity(
+            null,
+            "mock name",
+            "mock author",
+            3,
+            "ON_HOLD",
+            true,
+            null,
+        )
+        val id = testEntityManager.persistAndGetId(newEntity)
+
+        val matchedEntityList = bookRepository.findByFavouriteAndStatusNativeQuery(true, "ON_HOLD")
+        assertTrue(matchedEntityList.any { it.id == id })
+    }
+
+    @Test
     fun `updateFavourite should update favourite`() {
         val newEntity = BookEntity(
             null,
